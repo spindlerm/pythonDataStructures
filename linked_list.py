@@ -1,9 +1,11 @@
 from dataclasses import dataclass, field
+from typing import TypeVar
 
+T = TypeVar('T')
 
 @dataclass
 class Node:
-    value: int
+    value: T
     prev: 'Node' = field(default=None)
     next: 'Node' = field(default=None)
 
