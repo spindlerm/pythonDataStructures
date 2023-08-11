@@ -9,7 +9,7 @@ class Stack:
         if self.items.is_empty():
             raise ValueError("Stack is Empty")
         else:
-            return self.items.pop_tail().value
+            return self.items.pop_tail()
 
     def push(self, item: int) -> None:
         self.items.add_tail(item)
