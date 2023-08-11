@@ -4,7 +4,7 @@ test:
 format:
 	black .
 lint:
-	pylint *.py  --disable=E Makefile
+	pylint *.py tests/ --disable=E Makefile
 
 all: format lint test
 

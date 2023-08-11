@@ -10,33 +10,34 @@ class TestStack(unittest.TestCase):
     """Unit Tests Class for Stack class"""
 
     def test_is_empty_when_empty(self):
+        """Test the empty method when list is empty"""
         l_l = LinkedList()
         self.assertEqual(True, l_l.is_empty())
 
     def test_is_empty_when_not_empty(self):
-        """ "Test empty() on non empty list empty list"""
+        """Test empty() on non empty list empty list"""
         l_l = LinkedList()
         l_l.add_tail(1)
         self.assertEqual(False, l_l.is_empty())
 
     def test_get_head_when_empty(self):
-        """ "Test getting head item from empty list"""
+        """Test getting head item from empty list"""
         l_l = LinkedList()
         self.assertRaises(ValueError, l_l.get_head)
 
     def test_tail_head_when_empty(self):
-        """ "Test getting tail item from empty list"""
+        """Test getting tail item from empty list"""
         l_l = LinkedList()
         self.assertRaises(ValueError, l_l.get_tail)
 
     def test_add_one_item(self):
-        """ "Test adding one item to the tail of the list"""
+        """Test adding one item to the tail of the list"""
         l_l = LinkedList()
         l_l.add_tail(1)
         self.assertEqual(l_l.get_tail(), 1)
 
     def test_add_multiple_items(self):
-        """ "Test adding multiple items to the tail of the list"""
+        """Test adding multiple items to the tail of the list"""
 
         l_l = LinkedList()
         l_l.add_tail("a")
@@ -46,7 +47,7 @@ class TestStack(unittest.TestCase):
         self.assertEqual(l_l.get_tail(), "c")
 
     def test_pop_head(self):
-        """ "Test pop of an item from head of list"""
+        """Test pop of an item from head of list"""
 
         l_l = LinkedList()
         l_l.add_tail(1)
@@ -58,7 +59,7 @@ class TestStack(unittest.TestCase):
         self.assertEqual(l_l.is_empty(), True)
 
     def test_pop_tail(self):
-        """ "Test pop of an item from tail of list"""
+        """Test pop of an item from tail of list"""
 
         l_l = LinkedList()
         l_l.add_tail(1)
@@ -71,11 +72,12 @@ class TestStack(unittest.TestCase):
         self.assertEqual(l_l.is_empty(), True)
 
     def test_print_linked_list(self):
+        """Test the LineList print method"""
         l_l = LinkedList()
         l_l.add_tail(1)
         l_l.add_tail(2)
         l_l.add_tail(3)
-        f = io.StringIO()
-        with redirect_stdout(f):
+        out = io.StringIO()
+        with redirect_stdout(out):
             print(l_l)
-        self.assertEqual(f.getvalue(), "1,2,3\n")
+        self.assertEqual(out.getvalue(), "1,2,3\n")
